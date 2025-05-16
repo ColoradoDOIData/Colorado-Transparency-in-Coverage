@@ -4,7 +4,7 @@ This is the technical implementation guide for the machine-readable files (MRF) 
 
 ## Background
 The federal government issued Transparency in Coverage [final rules (885 FR 72158)](https://www.federalregister.gov/documents/2020/11/12/2020-24591/transparency-in-coverage) on November 12, 2020, and enforcement began on July 1, 2022.
-In 2024, Colorado passed [Senate Bill 24-080](https://leg.colorado.gov/bills/sb24-080) to require insurers and pharmacy benefit managers carriers to start posting Colorado-specific healthcare pricing data on July 1, 2025. In April 2025, [regulation 4-2-103](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://doi.colorado.gov/sites/doi/files/documents/Regulation%204-2-103%20TiC%20Reporting%20Requirements.pdf) went into effect, further outlining the reporting requirements.
+In 2024, Colorado passed [Senate Bill 24-080](https://leg.colorado.gov/bills/sb24-080) to require insurers and pharmacy benefit managers carriers to start posting Colorado-specific healthcare pricing data on July 1, 2025. In April 2025, [regulation 4-2-103](https://doi.colorado.gov/announcements/notice-of-adoption-regulation-4-2-103-concerning-transparency-in-coverage-reporting) went into effect, further outlining the reporting requirements.
 The goal of these policies is to make the pricing data more relevant and usable for Colorado consumers, employers, and researchers alike.
 Plans and issuers are required to share these files with the Colorado Division of Insurance ("the Division") beginning on July 1, 2025, and every 6 months thereafter.
 
@@ -18,11 +18,12 @@ You can find recently released federal guidance here:
 - [CMS TiC GitHub Repository](https://github.com/CMSgov/price-transparency-guide)
 
 ## Developer Documentation
-### File Transport Mechanism - coming soon   
+### File Transfer Mechanism - coming soon   
 In addition to making the MRFs publicly available on July 1, 2025, carriers must also submit the MRFs to the Division.   
 Instructions around the DOI's File Transfer system will be published around mid- to late-May, 2025. The Division’s goal is to have a fully secured platform that allows for automated submission of these files. However, due to state OIT resource constraints, the Division may have to develop a secure but partially manual submission for July 1, 2025. 
 ### Content Type
-In accordance with Regulation 4-2-103, the Division will accept [**JSON**](https://www.json.org/) files. If a carrier can demonstrate a material challenge with creating JSON files, they may request a different format from the Division. Requests must be submitted to the Division two weeks before submission deadlines and must describe in detail the reasons why the carrier cannot create JSON files.
+In accordance with Regulation 4-2-103, the Division will accept [**JSON**](https://www.json.org/) files. If a carrier can demonstrate a material challenge with creating JSON files, they may request a different format from the Division. Requests must be submitted to the Division two weeks before submission deadlines and must describe in detail the reasons why the carrier cannot create JSON files.  
+
 Examples of formats that do *not* meet the criteria:
 - PDF
 - CSV
@@ -33,9 +34,9 @@ There are four required files associated with Colorado's Transparency in Coverag
 1.	Table of Contents (JSON)
 2.	In-Network Negotiated Rates (JSON)
 3.	Out-of-Network Allowed Amounts (JSON)
-4. RxDC Reports (CSV, pr consistent with CMS' latest standards)
+4. RxDC Reports (CSV, or consistent with CMS' latest standards)
 
-Table of Contents File: The Table of Contents file should be leveraged to combine common negotiated rates across multiple in-network files and avoid having to duplicate data. It must include:   
+**Table of Contents File**: The Table of Contents file should be leveraged to combine common negotiated rates across multiple in-network files and avoid having to duplicate data. It must include:   
 - Carrier name,  
 - Plan name,  
 - Market segment using the following categories:  
@@ -51,8 +52,11 @@ Table of Contents File: The Table of Contents file should be leveraged to combin
 For reference, here is [the CMS guidance on the Table of Contents](https://github.com/CMSgov/price-transparency-guide/tree/master/schemas/table-of-contents).  
 
 Where plans have the same rates, HIOS Plan IDs or Group EINs can be listed and point to the correct in network files rather than having duplicate files for each plan.  
+
 **In-Network Negotiated Rates File**: Under the finalized federal rules, a plan or issuer must disclose in-network provider negotiated rates for all items and services through machine-readable files.  
+
 **Out-Of-Network Allowed Amounts File**: Under the finalized federal rules, a plan or issuer must disclose certain data elements to the public, including the billed and allowed amounts for out-of-network providers, through machine-readable files.  
+
 **Colorado Specific In-Network Negotiated Rates and Out-of-Network Allowed Amounts Filter**: The files listed above should be filtered to be Colorado specific in the following manner:  
 1.	Only include plans issued or delivered in Colorado;  
 2.	Only group or billing NPIs with a corresponding Colorado zip code; and  
