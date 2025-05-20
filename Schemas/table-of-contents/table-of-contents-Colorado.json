@@ -1,0 +1,29 @@
+{
+  "reporting_entity_name": "Example Health Insurance Co.",
+  "reporting_entity_type": "insurer",
+  "version": "1.0",
+  "date": "2025-07-01",
+  "file_size": 25.60,
+  "reporting_structure": [
+    {
+      "reporting_plans": [
+        {
+          "plan_name": "Sample Health Plan",
+          "plan_id_type": "hios",
+          "plan_id": "12345XYZ",
+          "plan_market_type": "individual"
+        }
+      ],
+      "in_network_files": [
+        {
+          "description": "In-network negotiated rates for providers",
+          "location": "https://example.com/files/in_network_rates.json"
+        }
+      ],
+      "allowed_amount_file": {
+        "description": "Allowed amounts for out-of-network services",
+        "location": "https://example.com/files/allowed_amounts.json"
+      }
+    }
+  ]
+}

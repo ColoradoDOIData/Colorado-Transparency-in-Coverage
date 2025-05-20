@@ -4,7 +4,7 @@ This is the technical implementation guide for the machine-readable files (MRF) 
 
 ## Background
 The federal government issued Transparency in Coverage [final rules (885 FR 72158)](https://www.federalregister.gov/documents/2020/11/12/2020-24591/transparency-in-coverage) on November 12, 2020, and enforcement began on July 1, 2022.
-In 2024, Colorado passed [Senate Bill 24-080](https://leg.colorado.gov/bills/sb24-080) to require insurers and pharmacy benefit managers carriers to start posting Colorado-specific healthcare pricing data on July 1, 2025. In April 2025, [regulation 4-2-103](https://doi.colorado.gov/announcements/notice-of-adoption-regulation-4-2-103-concerning-transparency-in-coverage-reporting) went into effect, further outlining the reporting requirements.
+In 2024, Colorado passed [Senate Bill 24-080](https://leg.colorado.gov/bills/sb24-080) to require insurers, carriers, and pharmacy benefit managers to start posting Colorado-specific healthcare pricing data on July 1, 2025. In April 2025, [regulation 4-2-103](https://doi.colorado.gov/announcements/notice-of-adoption-regulation-4-2-103-concerning-transparency-in-coverage-reporting) went into effect, further outlining the reporting requirements.
 The goal of these policies is to make the pricing data more relevant and usable for Colorado consumers, employers, and researchers alike.
 Plans and issuers are required to share these files with the Colorado Division of Insurance ("the Division") beginning on July 1, 2025, and every 6 months thereafter.
 
@@ -40,14 +40,14 @@ There are four required files associated with Colorado's Transparency in Coverag
 - Carrier name,  
 - Plan name,  
 - Market segment using the following categories:  
-        - Individual, Small Group, Large Group; or  
-        - TPA, Group EIN or HIOS Plan ID,  
-- Date files were generated,   
+        - Individual, Small Group (<=100 employees>), Large Group (>100 employees); or  
+        - TPA, identified by Group EIN or HIOS Plan ID,  
+- File generation date,   
 - URL link to plan specific files on the carrier’s website, and
 - File size:  
         - Definition: we are asking for decompressed file sizes. As in, [the value that users get when running a content length header request](https://stackoverflow.com/questions/2773396/whats-the-content-length-field-in-http-header) after running gzip.decompress() on the URLs.  
         - Format: decimal numeric value with two decimal places, expressed in units of Gigabytes.   
-        - The Division is open to receiving a separate metadata file that details file size information
+        - The Division is open to receiving a separate metadata file that details file size information.
 
 For reference, here is [the CMS guidance on the Table of Contents](https://github.com/CMSgov/price-transparency-guide/tree/master/schemas/table-of-contents).  
 
@@ -98,11 +98,13 @@ Under Section 5-C of Regulation 4-2-103, carriers shall include the URL link(s) 
 To allow for search engine discoverability, neither a robots.txt file nor meta tag on the page where the files are hosted will have rules such that give instructions to web crawlers to not index the page.
 This typically follows the format of or for a robots.txt file using the Disallow directive.
 
-### Federal Schemas
-[link to In-Network Rates schema](https://github.com/CMSgov/price-transparency-guide/blob/master/schemas/in-network-rates/README.md)   
-[link to Allowed Amounts schema](https://github.com/CMSgov/price-transparency-guide/blob/master/schemas/allowed-amounts/README.md)  
-[link to Table of Contents schema](https://github.com/CMSgov/price-transparency-guide/blob/master/schemas/table-of-contents/README.md)  
-[link to Provider Reference schema](https://github.com/CMSgov/price-transparency-guide/blob/master/schemas/provider-reference/README.md)  
+### Federal Schemas  
+With the exception of Table of Contents and one field in In-Network File, the Division will not publish its own schemas, since the content required is near-identical to that of the federal schemas. Instead, below are the links to the most current federal TiC file schema:  
+
+[link to In-Network Rates Federal schema](https://github.com/CMSgov/price-transparency-guide/blob/master/schemas/in-network-rates/README.md)   
+[link to Allowed Amounts Federal schema](https://github.com/CMSgov/price-transparency-guide/blob/master/schemas/allowed-amounts/README.md)  
+[link to Table of Contents Federal schema](https://github.com/CMSgov/price-transparency-guide/blob/master/schemas/table-of-contents/README.md)  
+[link to Provider Reference Federal schema](https://github.com/CMSgov/price-transparency-guide/blob/master/schemas/provider-reference/README.md)  
 
 [Link to Colorad-specific Table of Content Schema]
 
@@ -110,7 +112,7 @@ This typically follows the format of or for a robots.txt file using the Disallow
 [link to implementation examples](https://github.com/CMSgov/price-transparency-guide/tree/master/examples)  
 
 ## Exemption Process
-Carriers who have less than 30 enforced policies across the company’s combined plans may request an exemption by contacting the Division at the email address below.  
+Carriers who have **less than 30** enforced policies across the company’s combined plans may request an exemption by contacting the Division at the email address below.  
 
 ## Contact the Division
 Please contact dora_ins_data@state.co.us for any questions or concerns.
