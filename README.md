@@ -1,6 +1,6 @@
 # Colorado Transparency in Coverage
 
-This is the technical implementation guide for the machine-readable files (MRF) in accordance with the Colorado Transparency in Coverage statute and rule.
+This is the technical implementation guide for the machine-readable files (MRF) in accordance with the Colorado Transparency in Coverage [statute](https://leg.colorado.gov/sites/default/files/2024a_080_signed.pdf) and [rule](https://drive.google.com/file/d/18j0qUEtRuI5EghyKUhChBxI-P6EQNrrz/view). Carriers, plans, and PBMs are expected to adhere to this guidance. Deviations from this guidance may result in penalties for non-compliance.
 
 ## Background
 The federal government issued Transparency in Coverage [final rules (885 FR 72158)](https://www.federalregister.gov/documents/2020/11/12/2020-24591/transparency-in-coverage) on November 12, 2020, and enforcement began on July 1, 2022.
@@ -10,7 +10,7 @@ Plans and issuers are required to share these files with the Colorado Division o
 
 ## Timeline
 Beginning July 1, 2025, and January 1, 2026, and each July and January thereafter each carrier shall make publicly available and submit files to the Division.   
-The secure file transfer mechanism is still being established by the Division and its Office of Information Technology, and carriers are encouraged to work with the Division to test the process starting June 1, 2025.  
+For the first submission, the Division has granted a one-time extension for carriers to submit files on August 15th.  
 
 ## Guidance
 The Colorado specific files do not differ from the federal files with the exception of making the files Colorado specific, therefore much of this guidance is a duplicate of what CMS has provided.   
@@ -18,9 +18,61 @@ You can find recently released federal guidance here:
 - [CMS TiC GitHub Repository](https://github.com/CMSgov/price-transparency-guide)
 
 ## Developer Documentation
-### File Transfer Mechanism - coming soon   
-In addition to making the MRFs publicly available on July 1, 2025, carriers must also submit the MRFs to the Division.   
-Instructions around the DOI's File Transfer system will be published around mid- to late-May, 2025. The Division’s goal is to have a fully secured platform that allows for automated submission of these files. However, due to state OIT resource constraints, the Division may have to develop a secure but partially manual submission for July 1, 2025. 
+### File Submission Guide 
+#### I. Machine-Readable Files (MRFs)
+Pursuant to Regulation 4-2-103, the Division and the Colorado Office of Information Technology (OIT) explored solutions to enable secure, external-facing, and reliable MRF submissions.  The Division will host MRFs via state-managed Cloud infrastructure.
+
+Rather than submitting files through an interface, carriers must provide URLs to their public, Colorado-specific MRFs. Carriers must create a Colorado specific landing page on their website so that the public, Colorado specific MRFs **are not** on the same page as the federal MRFs.
+
+#### Required Submission: one TSV file
+Carriers must submit a single .tsv (tab-separated values) file containing:
+1. URLs to all Colorado-specific MRFs
+2. URL to the Table of Contents file, if applicable
+If a Table of Contents file is included, it must be listed as the first entry in the TSV file.
+
+**If a Table of Contents file is used, the individual URLs it contains must still be included in the TSV file.** The Division recognizes that some URLs in the TSV will duplicate those listed in the Table of Contents. This is both acceptable and necessary to meet the technical requirements of Google Cloud Storage Transfer Service.
+
+Below is an illustration of the TSV file:
+
+[image]
+
+In addition, all URLs must be publicly accessible and permanent. URLs behind login pages, paywalls, or with expiration dates will not be accepted.
+
+Please follow this guide to format your tsv files: [Formatting URLs for GCP Storage Transfer Service](https://cloud.google.com/storage-transfer/docs/create-url-list#url_list_format), and email your submissions to dora_ins_data@state.co.us by the required deadlines.
+
+For the first submission, carriers must post the MRFs publicly and submit the TSV files to the Division no later than August 15th, 2025. As a reminder, this is a one-time extension of the July 1, 2025 deadline.
+
+
+#### II. RxDC files
+#### RxDC File Submission Instructions
+The RxDC files may contain personally identifiable information (PII) and must be submitted securely via MoveIt, the State of Colorado’s SFTP system.
+
+**Important**: MoveIt has a file size limit of 1 GB. Carriers and PBMs should either zip files and/or split larger RxDC files into smaller parts to meet this requirement.
+
+#### How to Request MoveIt Access
+When your RxDC file is ready for submission, you must follow these steps:
+
+1. Email the following Division contacts with the name and contact information of your organization’s designated data submitter:
+
+        - DOI Data Team — dora_ins_data@state.co.us 
+        - cc: Kate Davidson, Data Science Manager — Kate.Davidson@state.co.us 
+        - cc: Rachel Zhang, TiC Data Science Lead — Rachel.Zhang@state.co.us 
+
+2. The designated submitter will receive an email from DONOTREPLY@state.co.us with the subject line: “New Package Is Waiting.”
+
+3. This email will include a link for first-time users to create a username and password for the Division’s secure SFTP site.
+
+4. **Access will be valid for 28 days.** If login or submission does not occur within this window, the process must be restarted. As such, the designated submitter will not receive the email to submit the file until days before the deadline. 
+
+For the 2025 submission, please email the designated submitter information to the above email addresses **no later** than August 8, 2025. The submitter can expect to receive the MoveIT email by August 13th, 2025. Carriers, plans, and PBMs are expected to adhere to these timelines. Deviations from this guidance that result in the submitters inability to meet the August 15, 2025 deadline, may result in penalties for non-compliance.
+
+#### Troubleshooting and Support
+Existing users can log in with their previously created credentials.
+
+If you experience any issues accessing the site or uploading files, please contact Kate Davidson or Rachel Zhang directly.
+
+
+
 ### Content Type
 In accordance with Regulation 4-2-103, the Division will accept [**JSON**](https://www.json.org/) files. If a carrier can demonstrate a material challenge with creating JSON files, they may request a different format from the Division. Requests must be submitted to the Division two weeks before submission deadlines and must describe in detail the reasons why the carrier cannot create JSON files.  
 
