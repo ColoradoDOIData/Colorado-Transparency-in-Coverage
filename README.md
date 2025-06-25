@@ -28,7 +28,8 @@ Rather than submitting files through an interface, carriers must provide URLs to
 #### Required Submission: one TSV file
 Carriers must submit a single .tsv (tab-separated values) file containing:
 1. URLs to all Colorado-specific MRFs
-2. URL to the Table of Contents file, if applicable
+2. URL to the Table of Contents file, if applicable  
+
 If a Table of Contents file is included, it must be listed as the first entry in the TSV file.
 
 **If a Table of Contents file is used, the individual URLs it contains must still be included in the TSV file.** The Division recognizes that some URLs in the TSV will duplicate those listed in the Table of Contents. This is both acceptable and necessary to meet the technical requirements of Google Cloud Storage Transfer Service.
@@ -48,7 +49,7 @@ For the first submission, carriers must post the MRFs publicly and submit the TS
 #### RxDC File Submission Instructions
 The RxDC files may contain personally identifiable information (PII) and must be submitted securely via MoveIt, the State of Colorado’s SFTP system.
 
-**Important**: MoveIt has a file size limit of 1 GB. Carriers and PBMs should either zip files and/or split larger RxDC files into smaller parts to meet this requirement.
+**Important**: MoveIt has a file size limit of 1 GB. Carriers and PBMs should zip files and/or split larger RxDC files into smaller parts to meet this requirement.
 
 #### How to Request MoveIt Access
 When your RxDC file is ready for submission, you must follow these steps:
@@ -65,7 +66,7 @@ When your RxDC file is ready for submission, you must follow these steps:
 
 4. **Access will be valid for 28 days.** If login or submission does not occur within this window, the process must be restarted. As such, the designated submitter will not receive the email to submit the file until days before the deadline. 
 
-For the 2025 submission, please email the designated submitter information to the above email addresses **no later** than August 8, 2025. The submitter can expect to receive the MoveIT email by August 13th, 2025. Carriers, plans, and PBMs are expected to adhere to these timelines. Deviations from this guidance that result in the submitters inability to meet the August 15, 2025 deadline, may result in penalties for non-compliance.
+For the 2025 submission, please email the designated submitter information to the above email addresses **no later** than August 8, 2025. The submitter can expect to receive the MoveIT email by August 13th, 2025. Carriers, plans, and PBMs are expected to adhere to these timelines. Deviations from this guidance that result in the submitters' inability to meet the August 15, 2025 deadline may result in penalties for non-compliance.
 
 #### Troubleshooting and Support
 Existing users can log in with their previously created credentials.
@@ -107,7 +108,7 @@ For example, carrier submissions must not replace required provider information 
 
 For reference, here is [the CMS guidance on the Table of Contents](https://github.com/CMSgov/price-transparency-guide/tree/master/schemas/table-of-contents).  
 
-Where plans have the same rates, HIOS Plan IDs or Group EINs can be listed and point to the correct in network files rather than having duplicate files for each plan.  
+Where plans have the same rates, HIOS Plan IDs or Group EINs can be listed and point to the correct in-network files rather than having duplicate files for each plan.  
 
 **2. In-Network Negotiated Rates File**: Under the finalized federal rules, a plan or issuer must disclose in-network provider negotiated rates for all items and services through machine-readable files.  
 
@@ -122,9 +123,9 @@ Where plans have the same rates, HIOS Plan IDs or Group EINs can be listed and p
 
 
 **4. RxDC reports**: under Section 204 of the CAA, Carriers and PBMs routinely submit information about prescription drugs and health care spending to CMS. This data submission is called the RxDC report, and is what the Division requires through Regulation 4-2-103.   
-The only change from what is submitted federally is that files should be filtered to only contain data specific to plans in Colorado. Standards can be found via [this link](https://www.cms.gov/marketplace/about/oversight/other-insurance-protections/prescription-drug-data-collection-rxdc). These reports may contain PII or PHI, as such carriers are not required to post these files publicly. These files should be in .csv format the Narrative Response should be in .pdf or .doc/.docx format.  
+The only change from what is submitted federally is that files should be filtered to only contain data specific to plans in Colorado. Standards can be found via [this link](https://www.cms.gov/marketplace/about/oversight/other-insurance-protections/prescription-drug-data-collection-rxdc). These reports may contain PII or PHI, as such, carriers are not required to post these files publicly. These files should be in .csv format, and the Narrative Response should be in .pdf or .doc/.docx format.  
 
-Colorado specific filtering for RxDC files:  
+**Colorado specific filtering for RxDC files:**  
 - Submitters can use either “aggregation state” in D1-D8 or “states in which the plan is offered” in P2 and P3 to filter these files to make them Colorado specific.  
 - The Narrative Response should include which field was used to filter 
 - The rest of the Narrative Response can be the same as what is submitted federally, please feel free to add any additional information about the Colorado market and impacts as appropriate.  
@@ -173,7 +174,7 @@ With the exception of Table of Contents and one field in In-Network File, the Di
 [link to Table of Contents Federal schema](https://github.com/CMSgov/price-transparency-guide/blob/master/schemas/table-of-contents/README.md)  
 [link to Provider Reference Federal schema](https://github.com/CMSgov/price-transparency-guide/blob/master/schemas/provider-reference/README.md)  
 
-[Link to Colorad-specific Table of Content Schema](Schemas/table-of-contents/README.md)
+[Link to Colorado-specific Table of Content Schema](Schemas/table-of-contents/README.md)
 
 ### Examples  
 [link to implementation examples](https://github.com/CMSgov/price-transparency-guide/tree/master/examples)  
