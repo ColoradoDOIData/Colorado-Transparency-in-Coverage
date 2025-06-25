@@ -1,3 +1,4 @@
+![alt text](resources\images\co_dora_div_ins_rgb.png)
 # Colorado Transparency in Coverage
 
 This is the technical implementation guide for the machine-readable files (MRF) in accordance with the Colorado Transparency in Coverage [statute](https://leg.colorado.gov/sites/default/files/2024a_080_signed.pdf) and [rule](https://drive.google.com/file/d/18j0qUEtRuI5EghyKUhChBxI-P6EQNrrz/view). Carriers, plans, and PBMs are expected to adhere to this guidance. Deviations from this guidance may result in penalties for non-compliance.
@@ -34,7 +35,7 @@ If a Table of Contents file is included, it must be listed as the first entry in
 
 Below is an illustration of the TSV file:
 
-[image]
+![alt text](resources\images\tsv_example.png)
 
 In addition, all URLs must be publicly accessible and permanent. URLs behind login pages, paywalls, or with expiration dates will not be accepted.
 
@@ -54,9 +55,9 @@ When your RxDC file is ready for submission, you must follow these steps:
 
 1. Email the following Division contacts with the name and contact information of your organization’s designated data submitter:
 
-        - DOI Data Team — dora_ins_data@state.co.us 
-        - cc: Kate Davidson, Data Science Manager — Kate.Davidson@state.co.us 
-        - cc: Rachel Zhang, TiC Data Science Lead — Rachel.Zhang@state.co.us 
+- DOI Data Team — dora_ins_data@state.co.us 
+- cc: Kate Davidson, Data Science Manager — Kate.Davidson@state.co.us 
+- cc: Rachel Zhang, TiC Data Science Lead — Rachel.Zhang@state.co.us 
 
 2. The designated submitter will receive an email from DONOTREPLY@state.co.us with the subject line: “New Package Is Waiting.”
 
@@ -88,7 +89,10 @@ There are four required files associated with Colorado's Transparency in Coverag
 3.	Out-of-Network Allowed Amounts (JSON)
 4. RxDC Reports (CSV, or consistent with CMS' latest standards)
 
-**Table of Contents File**: The Table of Contents file should be leveraged to combine common negotiated rates across multiple in-network files and avoid having to duplicate data. It must include:   
+**Important Note: Carriers must not embed or reference additional downloadable sub-files within the machine-readable file at any point.**   
+For example, carrier submissions must not replace required provider information - such as NPI, TIN type, or TIN value - with a URL linking to a separate JSON file. Submissions that rely on external links or contain large numbers of nested sub-files will not be considered compliant. All required data must be contained directly within the primary machine-readable file.
+
+**1. Table of Contents File**: The Table of Contents file should be leveraged to combine common negotiated rates across multiple in-network files and avoid having to duplicate data. It must include:   
 - Carrier name,  
 - Plan name,  
 - Market segment using the following categories:  
@@ -105,20 +109,31 @@ For reference, here is [the CMS guidance on the Table of Contents](https://githu
 
 Where plans have the same rates, HIOS Plan IDs or Group EINs can be listed and point to the correct in network files rather than having duplicate files for each plan.  
 
-**In-Network Negotiated Rates File**: Under the finalized federal rules, a plan or issuer must disclose in-network provider negotiated rates for all items and services through machine-readable files.  
+**2. In-Network Negotiated Rates File**: Under the finalized federal rules, a plan or issuer must disclose in-network provider negotiated rates for all items and services through machine-readable files.  
 
-**Out-Of-Network Allowed Amounts File**: Under the finalized federal rules, a plan or issuer must disclose certain data elements to the public, including the billed and allowed amounts for out-of-network providers, through machine-readable files.  
+**3. Out-Of-Network Allowed Amounts File**: Under the finalized federal rules, a plan or issuer must disclose certain data elements to the public, including the billed and allowed amounts for out-of-network providers, through machine-readable files.  
 
 **Colorado Specific In-Network Negotiated Rates and Out-of-Network Allowed Amounts Filter**: The files listed above should be filtered to be Colorado specific in the following manner:  
-1.	Only include plans issued or delivered in Colorado;  
-2.	Only group or billing NPIs with a corresponding Colorado zip code; and  
-3.	Only negotiated rate and procedure code combinations for providers with 20 or more services performed in the last year, at the procedure code level not accounting for modifiers. Modifiers must be included in the files, but do not change the count of claims a billing provider has for each procedure code.  
+1. Only include plans issued or delivered in Colorado;
+2. Only group or billing NPIs with a corresponding Colorado zip code; and
+3. Only negotiated rate and procedure code combinations for providers with 20 or more services performed in the last year, at the procedure code level, not accounting for modifiers. Modifiers must be included in the files, but do not change the count of claims a billing provider has for each procedure code.
 
-**RxDC reports**: under Section 204 of the CAA, Carriers and PBMs routinely submit information about prescription drugs and health care spending to CMS. This data submission is called the RxDC report, and is what the Division requires through Regulation 4-2-103. The RxDC files should be filtered to only contain data specific to plans in Colorado. Standards can be found via [this link](https://www.cms.gov/marketplace/about/oversight/other-insurance-protections/prescription-drug-data-collection-rxdc). These reports may contain PII or PHI. Carriers are not required to post these files publicly.  
+        The 20-service threshold should be calculated at the provider level across all plans, not separately by plan. For example: If a provider performed 10 of the same procedure under Plan A and 10 under Plan B, and both plans are offered by the same carrier, the total count is 20, which meets the inclusion criteria.
 
-Similar to Federal TiC guidance, carriers are highly encouraged to utilize an  optional MRF to significantly decrease file size and promote usability where applicable: [Provider Reference](https://github.com/CMSgov/price-transparency-guide/tree/master/schemas/provider-reference)  
 
-**Provider Reference**: Defining provider networks outside of the In-Network file can have significant benefits in the overall file size that is produced. The provider reference file allows the user to define common provider networks externally to the In-Network file that can be referenced from within the In-Network file. This allows large provider networks to be defined once and be used in multiple locations.  
+**4. RxDC reports**: under Section 204 of the CAA, Carriers and PBMs routinely submit information about prescription drugs and health care spending to CMS. This data submission is called the RxDC report, and is what the Division requires through Regulation 4-2-103.   
+The only change from what is submitted federally is that files should be filtered to only contain data specific to plans in Colorado. Standards can be found via [this link](https://www.cms.gov/marketplace/about/oversight/other-insurance-protections/prescription-drug-data-collection-rxdc). These reports may contain PII or PHI, as such carriers are not required to post these files publicly. These files should be in .csv format the Narrative Response should be in .pdf or .doc/.docx format.  
+
+Colorado specific filtering for RxDC files:  
+- Submitters can use either “aggregation state” in D1-D8 or “states in which the plan is offered” in P2 and P3 to filter these files to make them Colorado specific.  
+- The Narrative Response should include which field was used to filter 
+- The rest of the Narrative Response can be the same as what is submitted federally, please feel free to add any additional information about the Colorado market and impacts as appropriate.  
+- There is no requirement to submit the ‘Drugs missing from the CMS crosswalk’ file 
+ 
+
+**Provider Reference**: Similar to Federal TiC guidance, carriers are highly encouraged to utilize an optional MRF to significantly decrease file size and promote usability where applicable: [Provider Reference](https://github.com/CMSgov/price-transparency-guide/tree/master/schemas/provider-reference).  
+The provider reference file allows the user to define common provider networks externally to the In-Network file that can be referenced from within the In-Network file. This allows large provider networks to be defined once and be used in multiple locations.
+ 
 
 **Dates**: Files should contain current rates as of the date the files are created. Colorado files that are posted publicly to the carrier’s website should be the current or most recently submitted Colorado file and can be completely replaced once a new Colorado file is submitted (e.g. the January files may replace the previously posted July files).  Carriers do not need to keep historical files posted publicly.  
 
