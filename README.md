@@ -1,4 +1,4 @@
-![alt text](resources\images\co_dora_div_ins_rgb.png)
+![alt text](resources/images/co_dora_div_ins_rgb.png)
 # Colorado Transparency in Coverage
 
 This is the technical implementation guide for the machine-readable files (MRF) in accordance with the Colorado Transparency in Coverage [statute](https://leg.colorado.gov/sites/default/files/2024a_080_signed.pdf) and [rule](https://drive.google.com/file/d/18j0qUEtRuI5EghyKUhChBxI-P6EQNrrz/view). Carriers, plans, and PBMs are expected to adhere to this guidance. Deviations from this guidance may result in penalties for non-compliance.
@@ -6,21 +6,21 @@ This is the technical implementation guide for the machine-readable files (MRF) 
 ## Background
 The federal government issued Transparency in Coverage [final rules (885 FR 72158)](https://www.federalregister.gov/documents/2020/11/12/2020-24591/transparency-in-coverage) on November 12, 2020, and enforcement began on July 1, 2022.
 In 2024, Colorado passed [Senate Bill 24-080](https://leg.colorado.gov/bills/sb24-080) to require insurers, carriers, and pharmacy benefit managers to start posting Colorado-specific healthcare pricing data on July 1, 2025. In April 2025, [regulation 4-2-103](https://doi.colorado.gov/announcements/notice-of-adoption-regulation-4-2-103-concerning-transparency-in-coverage-reporting) went into effect, further outlining the reporting requirements.
-The goal of these policies is to make the pricing data more relevant and usable for Colorado consumers, employers, and researchers alike.
+The goal of these policies is to make the pricing data more relevant and usable for Colorado consumers, employers, and researchers alike.  
 Plans and issuers are required to share these files with the Colorado Division of Insurance ("the Division") beginning on July 1, 2025, and every 6 months thereafter.
 
 ## Timeline
 Beginning July 1, 2025, and January 1, 2026, and each July and January thereafter each carrier shall make publicly available and submit files to the Division.   
-For the first submission, the Division has granted a one-time extension for carriers to submit files on August 15th.  
+For the first submission, the Division has granted a one-time extension for carriers to submit files on August 15th, 2025.  
 
 ## Guidance
 The Colorado specific files do not differ from the federal files with the exception of making the files Colorado specific, therefore much of this guidance is a duplicate of what CMS has provided.   
 You can find recently released federal guidance here:  
 - [CMS TiC GitHub Repository](https://github.com/CMSgov/price-transparency-guide)
 
-## Developer Documentation
-### File Submission Guide 
-#### I. Machine-Readable Files (MRFs)
+
+## File Submission Guide 
+### I. Machine-Readable Files (MRFs)
 Pursuant to Regulation 4-2-103, the Division and the Colorado Office of Information Technology (OIT) explored solutions to enable secure, external-facing, and reliable MRF submissions.  The Division will host MRFs via state-managed Cloud infrastructure.
 
 Rather than submitting files through an interface, carriers must provide URLs to their public, Colorado-specific MRFs. Carriers must create a Colorado specific landing page on their website so that the public, Colorado specific MRFs **are not** on the same page as the federal MRFs.
@@ -35,7 +35,7 @@ If a Table of Contents file is included, it must be listed as the first entry in
 
 Below is an illustration of the TSV file:
 
-![alt text](resources\images\tsv_example.png)
+![alt text](resources/images/tsv_example.png)
 
 In addition, all URLs must be publicly accessible and permanent. URLs behind login pages, paywalls, or with expiration dates will not be accepted.
 
@@ -44,7 +44,7 @@ Please follow this guide to format your tsv files: [Formatting URLs for GCP Stor
 For the first submission, carriers must post the MRFs publicly and submit the TSV files to the Division no later than August 15th, 2025. As a reminder, this is a one-time extension of the July 1, 2025 deadline.
 
 
-#### II. RxDC files
+### II. RxDC files
 #### RxDC File Submission Instructions
 The RxDC files may contain personally identifiable information (PII) and must be submitted securely via MoveIt, the State of Colorado’s SFTP system.
 
@@ -73,7 +73,7 @@ Existing users can log in with their previously created credentials.
 If you experience any issues accessing the site or uploading files, please contact Kate Davidson or Rachel Zhang directly.
 
 
-
+## Developer Documentation
 ### Content Type
 In accordance with Regulation 4-2-103, the Division will accept [**JSON**](https://www.json.org/) files. If a carrier can demonstrate a material challenge with creating JSON files, they may request a different format from the Division. Requests must be submitted to the Division two weeks before submission deadlines and must describe in detail the reasons why the carrier cannot create JSON files.  
 
@@ -83,11 +83,11 @@ Examples of formats that do *not* meet the criteria:
 - XLS/XLSX
 
 ### Required Files
-There are four required files associated with Colorado's Transparency in Coverage requirements:
-1.	Table of Contents (JSON)
-2.	In-Network Negotiated Rates (JSON)
-3.	Out-of-Network Allowed Amounts (JSON)
-4. RxDC Reports (CSV, or consistent with CMS' latest standards)
+There are four required files associated with Colorado's Transparency in Coverage requirements:  
+1. Table of Contents (JSON)  
+2. In-Network Negotiated Rates (JSON)  
+3. Out-of-Network Allowed Amounts (JSON)  
+4. RxDC Reports (CSV, or consistent with CMS' latest standards)  
 
 **Important Note: Carriers must not embed or reference additional downloadable sub-files within the machine-readable file at any point.**   
 For example, carrier submissions must not replace required provider information - such as NPI, TIN type, or TIN value - with a URL linking to a separate JSON file. Submissions that rely on external links or contain large numbers of nested sub-files will not be considered compliant. All required data must be contained directly within the primary machine-readable file.
@@ -101,7 +101,7 @@ For example, carrier submissions must not replace required provider information 
 - File generation date,   
 - URL link to plan specific files on the carrier’s website, and
 - File size:  
-        - Definition: we are asking for decompressed file sizes. As in, [the value that users get when running a content length header request](https://stackoverflow.com/questions/2773396/whats-the-content-length-field-in-http-header) after running gzip.decompress() on the URLs.  
+        - Provide the **decompressed** file size. For files compressed using .gzip, this refers to the byte size obtained by applying gzip.decompress() to the file content returned from the URL, not the compressed size or the Content-Length of the compressed file.  
         - Format: decimal numeric value with two decimal places, expressed in units of Gigabytes.   
         - The Division is open to receiving a separate metadata file that details file size information.
 
@@ -118,7 +118,7 @@ Where plans have the same rates, HIOS Plan IDs or Group EINs can be listed and p
 2. Only group or billing NPIs with a corresponding Colorado zip code; and
 3. Only negotiated rate and procedure code combinations for providers with 20 or more services performed in the last year, at the procedure code level, not accounting for modifiers. Modifiers must be included in the files, but do not change the count of claims a billing provider has for each procedure code.
 
-        The 20-service threshold should be calculated at the provider level across all plans, not separately by plan. For example: If a provider performed 10 of the same procedure under Plan A and 10 under Plan B, and both plans are offered by the same carrier, the total count is 20, which meets the inclusion criteria.
+- The 20-service threshold should be calculated at the provider level across all plans, not separately by plan. For example: If a provider performed 10 of the same procedure under Plan A and 10 under Plan B, and both plans are offered by the same carrier, the total count is 20, which meets the inclusion criteria.
 
 
 **4. RxDC reports**: under Section 204 of the CAA, Carriers and PBMs routinely submit information about prescription drugs and health care spending to CMS. This data submission is called the RxDC report, and is what the Division requires through Regulation 4-2-103.   
@@ -173,7 +173,7 @@ With the exception of Table of Contents and one field in In-Network File, the Di
 [link to Table of Contents Federal schema](https://github.com/CMSgov/price-transparency-guide/blob/master/schemas/table-of-contents/README.md)  
 [link to Provider Reference Federal schema](https://github.com/CMSgov/price-transparency-guide/blob/master/schemas/provider-reference/README.md)  
 
-[Link to Colorad-specific Table of Content Schema]
+[Link to Colorad-specific Table of Content Schema](Schemas/table-of-contents/README.md)
 
 ### Examples  
 [link to implementation examples](https://github.com/CMSgov/price-transparency-guide/tree/master/examples)  
