@@ -90,7 +90,7 @@ There are four required files associated with Colorado's Transparency in Coverag
 3. Out-of-Network Allowed Amounts (JSON)  
 4. RxDC Reports (CSV, or consistent with CMS' latest standards)  
 
-**Important Note: Carriers must not embed or reference additional downloadable sub-files within the machine-readable file at any point.**   
+**Important Note: carriers must not embed or reference additional downloadable sub-files within the machine-readable file at any point, other than in the Table of Contents file.**   
 For example, carrier submissions must not replace required provider information - such as NPI, TIN type, or TIN value - with a URL linking to a separate JSON file. Submissions that rely on external links or contain large numbers of nested sub-files will not be considered compliant. All required data must be contained directly within the primary machine-readable file.
 
 **1. Table of Contents File**: The Table of Contents file should be leveraged to combine common negotiated rates across multiple in-network files and avoid having to duplicate data. It must include:   
