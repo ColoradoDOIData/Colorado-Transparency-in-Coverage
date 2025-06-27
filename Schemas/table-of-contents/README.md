@@ -18,6 +18,14 @@ The Reporting Structure object maps assoicated plans to their in-network and all
 | **in_network_files** | In Network File List | Array | An array of [file location objects](#file-location-object) contains the location **and file size** of the in-network file for the associated [reporting plan object.](#reporting-plans-object) | Yes |
 | **allowed_amount_file** | Allowed Amount File List | Object | The [file location object](#file-location-object) contains the location **and file size** of the allowed amounts file for the associated reporting plan object. | Yes |
 
+#### Reporting Plans Object
+| Field | Name | Type | Definition | Required |
+| ----- | ---- | ---- | ---------- | -------- |
+| **plan_name** | Plan Name | String | The plan name and name of plan sponsor and/or insurance company. | Yes |
+| **plan_id_type** | Plan Id Type | String | Allowed values: "EIN" and "HIOS" | Yes |
+| **plan_id** | Plan ID | String | The 10-digit Health Insurance Oversight System (HIOS) identifier, or, if the 10-digit HIOS identifier is not available, the 5-digit HIOS identifier, or if no HIOS identifier is available, the Employer Identification Number (EIN)for each plan or coverage offered by a plan or issuer. | Yes |
+| **plan_market_type** | Market Type | String | Allowed values: "Large Group", "Small Group", and "Individual" | Yes |
+
 #### File Location Object
 | Field | Name | Type | Definition | Required |
 | ----- | ---- | ---- | ---------- | -------- |
