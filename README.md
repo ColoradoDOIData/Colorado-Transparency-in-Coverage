@@ -49,7 +49,9 @@ For the first submission, carriers must post the MRFs publicly and submit the TS
 #### RxDC File Submission Instructions
 The RxDC files may contain personally identifiable information (PII) and must be submitted securely via MoveIt, the State of Colorado’s SFTP system.
 
-**Important**: MoveIt has a file size limit of 1 GB. Carriers and PBMs should zip files and/or split larger RxDC files into smaller parts to meet this requirement.
+**Important**: MoveIt has a file size limit of 1 GB. Carriers and PBMs should zip files and/or split larger RxDC files into smaller parts to meet this requirement.  
+
+For exemptions, see [Exemptions](https://github.com/ColoradoDOIData/Colorado-Transparency-in-Coverage#exemption-process)
 
 #### How to Request MoveIt Access
 When your RxDC file is ready for submission, you must follow these steps:
@@ -117,7 +119,7 @@ Where plans have the same rates, HIOS Plan IDs or Group EINs can be listed and p
 **Colorado Specific In-Network Negotiated Rates and Out-of-Network Allowed Amounts Filter**: The files listed above should be filtered to be Colorado specific in the following manner:  
 1. Only include plans issued or delivered in Colorado;
 2. Only group or billing NPIs with a corresponding Colorado zip code; and
-3. Only negotiated rate and procedure code combinations for providers with 20 or more services performed in the last year, at the procedure code level, not accounting for modifiers. Modifiers must be included in the files, but do not change the count of claims a billing provider has for each procedure code.
+3. (applicable to In-network negotiated rates only) Only negotiated rate and procedure code combinations for providers with 20 or more services performed in the last year, at the procedure code level, not accounting for modifiers. Modifiers must be included in the files, but do not change the count of claims a billing provider has for each procedure code.
 
 - The 20-service threshold should be calculated at the provider level across all plans, not separately by plan. For example: If a provider performed 10 of the same procedure under Plan A and 10 under Plan B, and both plans are offered by the same carrier, the total count is 20, which meets the inclusion criteria.
 
@@ -180,7 +182,14 @@ With the exception of Table of Contents and one field in In-Network File, the Di
 [link to implementation examples](https://github.com/CMSgov/price-transparency-guide/tree/master/examples)  
 
 ## Exemption Process
-Carriers who have **less than 30** enforced policies across the company’s combined plans may request an exemption by contacting the Division at the email address below.  
+
+### Health Plan Carriers
+Carriers who have **fewer than 30** enforced policies across the company’s combined plans may request an exemption by contacting the Division at the email address below.  
+
+### Pharmacy Benefit Managers
+PBMs who have **fewer than 30** covered, active members in the state of Colorado are exempt from reporting requirements.   
+
+How to check: in your existing RxDC file P2 - Group Health Plan List, after filtering Column E to the state of Colorado, are there fewer than 30 members remaining in Column I?  
 
 ## Contact the Division
 Please contact dora_ins_data@state.co.us for any questions or concerns.
