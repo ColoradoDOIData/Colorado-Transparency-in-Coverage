@@ -38,7 +38,7 @@ Below is an illustration of the TSV file:
 
 ![alt text](resources/images/tsv_example.png)
 
-In addition, all URLs must be publicly accessible and permanent. URLs behind login pages, paywalls, or with expiration dates will not be accepted.
+In addition, all URLs must be publicly accessible. URLs behind login pages, paywalls, or with expiration dates will not be accepted.
 
 Please follow this guide to format your tsv files: [Formatting URLs for GCP Storage Transfer Service](https://cloud.google.com/storage-transfer/docs/create-url-list#url_list_format), and email your submissions to dora_ins_data@state.co.us by the required deadlines.
 
@@ -46,6 +46,7 @@ For the first submission, carriers must post the MRFs publicly and submit the TS
 
 
 ### II. RxDC files
+RxDC file submitters are only required to submit once a year in July.
 #### RxDC File Submission Instructions
 The RxDC files may contain personally identifiable information (PII) and must be submitted securely via MoveIt, the State of Colorado’s SFTP system.
 
@@ -95,11 +96,13 @@ There are four required files associated with Colorado's Transparency in Coverag
 **Important Note: carriers must not embed or reference additional downloadable sub-files within the machine-readable file at any point, other than in the Table of Contents file.**   
 For example, carrier submissions must not replace required provider information - such as NPI, TIN type, or TIN value - with a URL linking to a separate JSON file. Submissions that rely on external links or contain large numbers of nested sub-files will not be considered compliant. All required data must be contained directly within the primary machine-readable file.
 
-**1. Table of Contents File**: The Table of Contents file should be leveraged to combine common negotiated rates across multiple in-network files and avoid having to duplicate data. It must include:   
+**1. Table of Contents File**: in accordance with federal schema 2.0 requirements, a Table of Content file is required when different plans share the same rate structure. It is only optional when there are single plans that utilize unique rate structures.   
+
+ToC files must include: 
 - Carrier name,  
 - Plan name,  
 - Market segment using the following categories:  
-        - Individual, Small Group (<=100 employees>), Large Group (>100 employees); or  
+        - Individual, Small Group (<=50 employees>), Large Group (>50 employees); or  
         - TPA, identified by Group EIN or HIOS Plan ID,  
 - File generation date,   
 - URL link to plan specific files on the carrier’s website, and
@@ -119,9 +122,9 @@ Where plans have the same rates, HIOS Plan IDs or Group EINs can be listed and p
 **Colorado Specific In-Network Negotiated Rates and Out-of-Network Allowed Amounts Filter**: The files listed above should be filtered to be Colorado specific in the following manner:  
 1. Only include plans issued or delivered in Colorado;
 2. Only group or billing NPIs with a corresponding Colorado zip code; and
-3. (applicable to In-network negotiated rates only) Only negotiated rate and procedure code combinations for providers with 20 or more services performed in the last year, at the procedure code level, not accounting for modifiers. Modifiers must be included in the files, but do not change the count of claims a billing provider has for each procedure code.
+3. (applicable to In-network negotiated rates only) Only negotiated rate and procedure code combinations for **providers TINs with 20 or more** services performed in the last year, at the procedure code level, not accounting for modifiers. Modifiers must be included in the files, but do not change the count of claims a billing provider has for each procedure code.
 
-- The 20-service threshold should be calculated at the provider level across all plans, not separately by plan. For example: If a provider performed 10 of the same procedure under Plan A and 10 under Plan B, and both plans are offered by the same carrier, the total count is 20, which meets the inclusion criteria.
+- The 20-service threshold should be **plan- and network-agnostic**. 
 
 
 **4. RxDC reports**: under Section 204 of the CAA, Carriers and PBMs routinely submit information about prescription drugs and health care spending to CMS. This data submission is called the RxDC report, and is what the Division requires through Regulation 4-2-103.   
