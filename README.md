@@ -1,7 +1,7 @@
 ![alt text](resources/images/co_dora_div_ins_rgb.png)
 # Colorado Transparency in Coverage
 
-This is the technical implementation guide for the machine-readable files (MRF) in accordance with the Colorado Transparency in Coverage [statute](https://leg.colorado.gov/sites/default/files/2024a_080_signed.pdf) and [rule](https://drive.google.com/file/d/18j0qUEtRuI5EghyKUhChBxI-P6EQNrrz/view). Carriers, plans, and PBMs are expected to adhere to this guidance. Deviations from this guidance may result in penalties for non-compliance.
+This is the technical implementation guide for the machine-readable files (MRF) in accordance with the Colorado Transparency in Coverage [statute](https://leg.colorado.gov/sites/default/files/2024a_080_signed.pdf) and [rule](https://doi.colorado.gov/announcements/notice-of-adoption-regulation-4-2-103-concerning-transparency-in-coverage-reporting). Carriers, plans, and PBMs are expected to adhere to this guidance. Deviations from this guidance may result in penalties for non-compliance.
 
 ## Background
 The federal government issued Transparency in Coverage [final rules (885 FR 72158)](https://www.federalregister.gov/documents/2020/11/12/2020-24591/transparency-in-coverage) on November 12, 2020, and enforcement began on July 1, 2022.
@@ -10,7 +10,7 @@ The goal of these policies is to make the pricing data more relevant and usable 
 Plans and issuers are required to share these files with the Colorado Division of Insurance ("the Division") beginning on July 1, 2025, and every 6 months thereafter.
 
 ## Timeline
-Beginning July 1, 2025, and January 1, 2026, and each July and January thereafter each carrier shall make publicly available and submit files to the Division.   
+Beginning July 1, 2025, and January 1, 2026, and each July and January thereafter, each carrier shall make publicly available and submit Machine-Readable Files (MRFs) to the Division.   
 For the first submission, the Division has granted a one-time extension for carriers to submit files on August 15th, 2025.  
 
 ## Guidance
@@ -48,9 +48,9 @@ For the first submission, carriers must post the MRFs publicly and submit the TS
 ### II. RxDC files
 RxDC file submitters are only required to submit once a year in July.
 #### RxDC File Submission Instructions
-The RxDC files may contain personally identifiable information (PII) and must be submitted securely via MoveIt, the State of Colorado’s SFTP system.
+The RxDC files may contain personally identifiable information (PII) and must be submitted securely via MoveIT, the State of Colorado’s SFTP system.
 
-**Important**: MoveIt has a file size limit of 1 GB. Carriers and PBMs should zip files and/or split larger RxDC files into smaller parts to meet this requirement.  
+**Important**: MoveIT has a file size limit of 1 GB. Carriers and PBMs should zip files and/or split larger RxDC files into smaller parts to meet this requirement.  
 
 For exemptions, see [Exemptions](https://github.com/ColoradoDOIData/Colorado-Transparency-in-Coverage#exemption-process)
 
@@ -60,8 +60,7 @@ When your RxDC file is ready for submission, you must follow these steps:
 1. Email the following Division contacts with the name and contact information of your organization’s designated data submitter:
 
 - DOI Data Team — dora_ins_data@state.co.us 
-- cc: Kate Davidson, Data Science Manager — Kate.Davidson@state.co.us 
-- cc: Rachel Zhang, TiC Data Science Lead — Rachel.Zhang@state.co.us 
+- cc: Rachel Zhang, TiC Data Science Lead — rachel.zhang@state.co.us 
 
 2. The designated submitter will receive an email from DONOTREPLY@state.co.us with the subject line: “New Package Is Waiting.”
 
@@ -73,8 +72,6 @@ For the 2025 submission, please email the designated submitter information to th
 
 #### Troubleshooting and Support
 Existing users can log in with their previously created credentials.
-
-If you experience any issues accessing the site or uploading files, please contact Kate Davidson or Rachel Zhang directly.
 
 
 ## Developer Documentation
