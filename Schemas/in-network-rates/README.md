@@ -19,3 +19,5 @@ The In-Network file schema is nearly identical to the federal schema provided at
 ##### Notes Concerning `reporting_entity_type` and `plan_market_type`
 In accordance with reg 4-2-103, carriers are required to report whether they're filing for small group employers (>= 50 employees), large group employers(> 50 employees), individual market, or as Third-Party Administrators (TPA). These attributes will reflect in these two fields.
 
+##### Notes Concerning Federal Schema 2.0
+On 2/2/2026, CMS started enforcing TiC schema 2.0 standards. Since the form and manner of the Colorado-specific TiC data is not materially different from federal standards, key changes in the in-network rates portion can be viewed via the links in this README directly in the CMS GitHub.  

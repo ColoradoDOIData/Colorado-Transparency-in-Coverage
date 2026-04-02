@@ -46,7 +46,7 @@ For the first submission, carriers must post the MRFs publicly and submit the TS
 
 
 ### II. RxDC files
-RxDC file submitters are only required to submit once a year in July.
+RxDC file submitters are only required to submit once a year on July 1st.
 #### RxDC File Submission Instructions
 The RxDC files may contain personally identifiable information (PII) and must be submitted securely via MoveIT, the State of Colorado’s SFTP system.
 
@@ -119,7 +119,7 @@ Where plans have the same rates, HIOS Plan IDs or Group EINs can be listed and p
 **Colorado Specific In-Network Negotiated Rates and Out-of-Network Allowed Amounts Filter**: The files listed above should be filtered to be Colorado specific in the following manner:  
 1. Only include plans issued or delivered in Colorado;
 2. Only group or billing NPIs with a corresponding Colorado zip code; and
-3. (applicable to In-network negotiated rates only) Only negotiated rate and procedure code combinations for **providers TINs with 20 or more** services performed in the last year, at the procedure code level, not accounting for modifiers. Modifiers must be included in the files, but do not change the count of claims a billing provider has for each procedure code.
+3. (applicable to In-network negotiated rates only) Only negotiated rate and procedure code combinations for **providers' TINs with 20 or more** services performed in the last year, at the procedure code level, not accounting for modifiers. Modifiers must be included in the files, but do not change the count of claims a billing provider has for each procedure code.
 
 - The 20-service threshold should be **plan- and network-agnostic**. 
 
