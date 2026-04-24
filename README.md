@@ -68,7 +68,7 @@ When your RxDC file is ready for submission, you must follow these steps:
 
 4. **Access will be valid for 28 days.** If login or submission does not occur within this window, the process must be restarted. As such, the designated submitter will not receive the email to submit the file until days before the deadline. 
 
-For the 2025 submission, please email the designated submitter information to the above email addresses **no later** than August 8, 2025. The submitter can expect to receive the MoveIT email by August 13th, 2025. Carriers, plans, and PBMs are expected to adhere to these timelines. Deviations from this guidance that result in the submitters' inability to meet the August 15, 2025 deadline may result in penalties for non-compliance.
+For the 2026 submission, please email the designated submitter information to the above email addresses **no later** than June 15th, 2026. The submitter can expect to receive the MoveIT email by June 22nd, 2026. Carriers, plans, and PBMs are expected to adhere to these timelines. Deviations from this guidance that result in the submitters' inability to meet the July 1st, 2026 deadline may result in penalties for non-compliance.
 
 #### Troubleshooting and Support
 Existing users can log in with their previously created credentials.
