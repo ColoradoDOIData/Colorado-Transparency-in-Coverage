@@ -1,4 +1,4 @@
-![alt text](resources/images/Logo_White_Text_Full_Color_Logo.png)
+![alt text](resources/images/co_dora_div_ins_rgb.png)
 # Colorado Transparency in Coverage
 
 This is the technical implementation guide for the machine-readable files (MRF) in accordance with the Colorado Transparency in Coverage [statute](https://leg.colorado.gov/sites/default/files/2024a_080_signed.pdf) and [rule](https://doi.colorado.gov/announcements/notice-of-adoption-regulation-4-2-103-concerning-transparency-in-coverage-reporting). Carriers, plans, and PBMs are expected to adhere to this guidance. Deviations from this guidance may result in penalties for non-compliance.
